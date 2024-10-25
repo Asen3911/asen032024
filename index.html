@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Sen</title>
+
+
+    <style>
+
+
+        body{
+            
+            background-color: #ccc5b9;
+        }
+        :root{
+            --color-primary: darkorange;
+            --color-secondary: silver;
+            --color-teritiary:  rgb(83, 121, 141);
+        }
+
+        html{scroll-behavior: smooth;}
+
+        .container{
+            background-color:rgb(202, 214, 194) ;
+            border: 1px;
+            min-height: 15rem;
+            max-width:75rem ;
+            margin: auto;
+            padding: 1rem 3rem 1rem 3rem;
+            position: relative;
+        }
+
+
+        #pageheader{
+            min-height: 150px;
+            /* background-color: rgb(83, 121, 141); */
+            background-color: var(--color-teritiary);
+            padding: 1rem;
+            
+        }
+
+
+        #pageheader .container{
+            background-color: var(--color-teritiary);
+            min-height: 175px;
+        }
+
+
+        #logo{
+            background-color: rebeccapurple;
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            background-image: url(Images/logo.png);
+            background-size:cover ;
+            /* border: 5px solid red; */
+            position: absolute;
+            left: calc(50% - 75px);
+            transition: all 2s;
+            background-repeat: no-repeat;
+            top: -10px;
+            border: 3px solid white;
+        }
+
+
+        #pagenav{
+            background-color: none;
+            min-height: 40px;
+            width: 400px;
+            display: flex;
+            align-content: center;
+            justify-content: space-evenly;
+            position: absolute;
+            bottom: 0px;
+            left: calc(50% - 150px);
+
+        }
+        
+        #pagenav a{
+            color: white;
+            text-decoration:none;
+        }
+        
+
+        #pagenav a:hover{
+            color: cadetblue;
+        }
+
+
+        #media{
+            min-height: 500px;
+            background-color: rgb(162, 195, 165);
+            padding: 1rem;
+            color: black;
+        }
+
+        #media h1{
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        #media h2{
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        #media blockquote{
+            background-color: none;
+            max-width: 50%;
+            margin: auto;
+        }
+
+
+        img{
+            min-width: 500px;
+            height: 500px;
+            text-align: center;
+            justify-content: center;
+            display: block;
+            margin: auto;
+            border: 5px solid black;
+        }
+
+        #career{
+            min-height: 200px;
+            background-color: rgb(83, 137, 125);
+            padding: 1rem;
+
+        }
+        #pagecontent{
+            min-height: 200px;
+            background-color: rgb(93, 145, 151);
+            padding: 1rem;
+
+        }
+
+    
+        #keyassignments{
+            min-height: 200px;
+            background-color: rgb(93, 145, 151);
+            padding: 1rem;
+
+        }
+        
+        
+        #semester1{
+            min-height: 200px;
+            background-color: rgb(126, 175, 136);
+            padding: 1rem;
+
+        }
+        #semester2{
+            min-height: 200px;
+            background-color: rgb(126, 175, 136);
+            padding: 1rem;
+            display: none;
+        }
+
+
+
+        #pagefooter{
+            min-height: 50px;
+            background-color: rgb(99, 151, 125);
+            padding: 1rem;
+            text-align: center;
+
+        }
+
+        #pagefooter .container{
+            min-height: 1rem;
+
+        }
+
+        #subfooter{
+            min-height: 100px;
+            background-color: rgb(99, 151, 125);
+            padding: 1rem;
+        }
+
+
+        #subfooter .container{
+            min-height: 5rem;
+        }
+
+
+        #top
+        {
+            width: 25px;
+            height: 25px;
+            background-color: rgb(124, 124, 124);
+            border: 6px double  rgb(71, 88, 40);
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+        }
+
+        #top a{
+            color: white;
+        }
+
+
+        .footerlinks{
+            display: none;
+        }
+
+        /* Media Queries */
+        @media screen and (min-width:320px)
+        {
+            #pagecontent
+            {
+                
+            }
+        }
+
+        @media screen and (min-width:480px)
+        {
+        }
+
+        @media screen and (min-width:768px)
+        {
+
+            #flexsubfooter{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .footerlinks{
+                display: block;
+                min-width: 350px;
+            }
+
+
+        }
+
+        @media screen and (min-width:1024px)
+        {
+            #logo{left: 25px;}
+
+
+            #pagenav{
+                top: 0px;
+                right: 0px;
+                left: auto;
+                bottom: auto;
+            }
+
+
+            #pageheader {
+                min-height: 175px;
+            }
+
+            #pageheader .container{
+                min-height: 75px;
+            }
+
+        }
+
+        @media screen and (min-width:1200px)
+        {
+
+        }
+
+        </style>
+
+
+
+</head>
+
+<body>
+
+    <!-- named anchor to navigate to the top of the page -->
+    <a href="top"></a>
+
+
+<!-- beggin pageheader -->
+
+
+        <Header id="pageheader">
+    
+            
+    
+            <div class="container">
+                <div id="logo"></div>
+                <nav id="pagenav">
+    
+                    <a href="#career">Career </a>
+                    |
+                    <a href="#semester1">Semester 1 </a>
+                    <!-- | -->
+                    <!-- <a href="#semester2">Semester 2 </a> -->
+                    |
+                    <a href="#keyassignments">Key Assignments</a>
+
+                </nav>
+            </div>
+        </Header>
+    
+        <!-- end pageheader -->
+    
+        <!-- begin showcase -->
+    
+        <section id="media">
+            <h1>Adrian Sen</h1>
+
+            <h2>Portfolio</h2>
+            <!-- <blockquote>To be or not to be</blockquote> -->
+
+            <audio controls>
+                <source id="player"  src="Audio/symphony.mp3" type="audio/mp3">
+
+
+            </audio>
+
+            <img src="Images/Screen_Shot_2024-08-31_at_2.13.19_pm.webp" alt="Symphony">
+        </section>
+        <!-- end showcase -->
+
+
+    
+        
+        <!-- begin pagecontent -->
+        <main id="pagecontent">
+            
+
+            
+            <div class="container"> 
+                <h2>Introduction</h2>
+
+                <p>
+                    Hello my name is Adrian Sen. This would be my third year in Web Development. So far i am enjoying it, i've gotten to go to competitions for Web Development. Some of my hobbies are to play sports and traveling. I'm interested into shoes and music. My goals for this year are to get my license. My plan after high school is to continue with my education and go to community college for 1-2 years then transfer..
+                </p>
+
+            </div>
+        </main>
+        <!-- end pagecontent -->
+        
+
+
+
+        <!-- begin career -->
+        <section id="career">
+                <div class="container">
+                    <a name="career"></a>
+                    <h2>Career</h2>
+
+                    <ul>
+                        <li>Letter of Introduction</li>
+                        <li>Resume</li>
+                        <li>References</li>
+                        <li>Job Application</li>
+                        <li>Career Plan</li>
+                        <li>Work Samples</li>
+                        <li>Certificates</li>
+
+                    </ul>
+
+                    
+                </div>
+            
+    
+        </section>
+        <!-- end career -->
+    
+    
+    
+    
+        <!-- begin semesters -->
+        <section id="semester1">
+    
+            <div class="container">
+                <div class="semester1">
+                    <a name="semester1"></a>
+                    <h2>Semester 1</h2>
+
+                    <ul>
+                        <li>A001</li>
+                        <li>A002</li>
+                        <li>A003</li>
+                        <li>A004</li>
+                        <li><a href="Demos/canvassmiley/smileyface.html">Smiley Face</a></li>
+                    </ul>
+
+                </div>
+            </div>
+    
+        </section>
+    
+    
+        <section id="semester2">
+    
+        <div class="container"> 
+            <div class="semester2">
+                <a name="semester2"></a>
+                <h2>Semester 2</h2>
+
+                <ul>
+                    <li>A001</li>
+                    <li>A002</li>
+                    <li>A003</li>
+                    <li>A004</li>
+                </ul>
+
+
+            </div>
+        </div>
+    
+        </section>
+
+
+
+        <!-- begin keyassignments-->
+        <div id="keyassignments">
+            
+
+            
+            <div class="container">
+                <a name="keyassignments"></a>
+                <h2>Key Assignments</h2>
+
+                <p>
+                    Hello my name is Adrian Sen. This would be my third year in Web Development. So far i am enjoying it, i've gotten to go to competitions for Web Development. Some of my hobbies are to play sports and traveling. I'm interested into shoes and music. My goals for this year are to get my license. My plan after high school is to continue with my education and go to community college for 1-2 years then transfer..
+                </p>
+
+            </div>
+        </div>
+        <!-- end keyassignments -->
+
+    
+    
+    
+    
+    
+    
+        <!-- begin pagefooter -->
+        <footer id="pagefooter">
+            
+            <div class="container">
+                <a href="">chago</a> |
+                <a href="">color schemes</a> |
+                <a href="https://coalingahuron.aeries.net/student/LoginParent.aspx" target="new">aeries</a> |
+                <a href="">chs</a> |
+                <a href="">mycareertech</a> |
+                <a href="">classroom</a> |
+                <a href="">codepip</a> |
+                <a href="">minga</a> |
+    
+            </div>
+        </footer>
+        <!-- end pagefooter -->
+        
+        <!-- begin subfooter -->
+        <footer id="subfooter">
+            
+            <div class="container">
+
+<div id="flexsubfooter">
+    
+    
+                    <div class="quote">
+                        <h3>Final Thoughts</h3>
+                        <blockquote>
+                            "I don't intend to stop making music."
+                        </blockquote>
+    
+                        <p>-Frank Ocean</p>
+    
+                    </div>
+    
+    
+    
+    
+    
+                    <div class="footerlinks">
+                        <h3>Links</h3>
+                            <ul>
+                                <li><a href="#career">Career</a></li>
+                                <li><a href="#semester1">Semester1</a></li>
+                                <li><a href="#keyassignments">Key Assignments</a></li>
+    
+    
+    
+    
+                            </ul>
+                    </div>
+    
+</div>
+
+
+            </div>
+        </footer>
+        <!-- end subfooter -->
+    
+        <div id="top" >
+            
+            <a href="#Top">Top</a>
+
+        </div>
+    
+
+</body>
+
+</html>

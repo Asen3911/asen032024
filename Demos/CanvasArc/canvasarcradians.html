@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Arc</title>
+
+    <style>
+        h1{
+            text-align: center;
+        }        
+    </style>
+
+</head>
+<body>
+
+    <h1>Canvas Arc</h1>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        //create canvas for 2d drawing
+        const canvas = window.document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+
+        //configure canvas
+        canvas.width = 800;
+        canvas.height = 400;
+
+        //style
+
+        canvas.style.border = '2px solid black';
+        canvas.style.margin = 'auto';
+        canvas.style.display = 'block';
+
+
+        //draw circle
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 1;
+        
+        ctx.beginPath();
+        ctx.arc(400, 200, 100, 0, Math.PI * 2);
+        ctx.stroke();
+    </script>
+    
+</body>
+</html>
