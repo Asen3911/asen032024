@@ -7,12 +7,24 @@
     <title>Adrian Sen</title>
 
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+
+
+
     <style>
 
 
         body{
             
             background-color: #ccc5b9;
+            padding: 0;
+            margin: 0;
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
         }
         :root{
             --color-primary: darkorange;
@@ -34,7 +46,7 @@
 
 
         #pageheader{
-            min-height: 150px;
+            min-height: 100px;
             /* background-color: rgb(83, 121, 141); */
             background-color: var(--color-teritiary);
             padding: 1rem;
@@ -44,14 +56,14 @@
 
         #pageheader .container{
             background-color: var(--color-teritiary);
-            min-height: 175px;
+            min-height: 100px;
         }
 
 
         #logo{
             background-color: rebeccapurple;
-            width: 125px;
-            height: 125px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background-image: url(Images/logo.png);
             background-size:cover ;
@@ -66,20 +78,23 @@
 
 
         #pagenav{
-            background-color: none;
-            min-height: 40px;
-            width: 400px;
+            background-color: #ccc5b9;
+            min-height: 20px;
+            width: 300px;
             display: flex;
             align-content: center;
             justify-content: space-evenly;
             position: absolute;
             bottom: 0px;
             left: calc(50% - 150px);
+            padding: 1rem;
+            color: black;
+
 
         }
         
         #pagenav a{
-            color: white;
+            color: black;
             text-decoration:none;
         }
         
@@ -113,6 +128,9 @@
         }
 
 
+
+
+
         img{
             min-width: 500px;
             height: 500px;
@@ -123,15 +141,18 @@
             border: 5px solid black;
         }
 
+
+
         #career{
             min-height: 200px;
             background-color: rgb(83, 137, 125);
             padding: 1rem;
 
+
         }
         #pagecontent{
             min-height: 200px;
-            background-color: rgb(93, 145, 151);
+            background-color: rgb(162, 195, 165);
             padding: 1rem;
 
         }
@@ -207,6 +228,14 @@
         .footerlinks{
             display: none;
         }
+
+        #holder{
+            width: 30px;
+            background-color: grey;
+            margin: auto;
+            top: 15px;
+        }
+
 
         /* Media Queries */
         @media screen and (min-width:320px)
@@ -311,12 +340,17 @@
             <!-- <blockquote>To be or not to be</blockquote> -->
 
             <audio controls>
-                <source id="player"  src="Audio/symphony.mp3" type="audio/mp3">
+                
+
+                    <source id="player"  src="Audio/symphony.mp3" type="audio/mp3">
+
 
 
             </audio>
 
             <img src="Images/Screen_Shot_2024-08-31_at_2.13.19_pm.webp" alt="Symphony">
+
+            <div id="holder">Test</div>
         </section>
         <!-- end showcase -->
 
@@ -331,6 +365,8 @@
             <div class="container"> 
                 <h2>Introduction</h2>
 
+                <h3>git clone</h3>
+
                 <p>
                     Hello my name is Adrian Sen. This would be my third year in Web Development. So far i am enjoying it, i've gotten to go to competitions for Web Development. Some of my hobbies are to play sports and traveling. I'm interested into shoes and music. My goals for this year are to get my license. My plan after high school is to continue with my education and go to community college for 1-2 years then transfer..
                 </p>
@@ -344,16 +380,16 @@
 
         <!-- begin career -->
         <section id="career">
-                <div class="container">
+                <div id="career1" class="container">
                     <a name="career"></a>
                     <h2>Career</h2>
 
                     <ul>
-                        <li>Letter of Introduction</li>
-                        <li>Resume</li>
-                        <li>References</li>
-                        <li>Job Application</li>
-                        <li>Career Plan</li>
+                        <li><a href="Documents/AdrianSenLetterofIntroduction.pdf">Letter of Introduction</a></li>
+                        <li><a href="Documents/AdrianSenResume.pdf">Resume</a></li>
+                        <li><a href="Documents/AdrianSenReferences.pdf">References</a></li>
+                        <li><a href="Documents/AdrianSenApplication.pdf">Job Application</a></li>
+                        <li><a href="Documents/AdrianSenCareerActionPlan.pdf">Career Plan</a></li>
                         <li>Work Samples</li>
                         <li>Certificates</li>
 
@@ -383,6 +419,8 @@
                         <li>A003</li>
                         <li>A004</li>
                         <li><a href="Demos/canvassmiley/smileyface.html">Smiley Face</a></li>
+                        <li><a href="Demos/CanvasDrawing/canvasdrawing.html">Canvas Drawing 1</a></li>
+                        <li ><a href="Demos/CanvasDrawing/canvasdrawing2.html">Canvas Drawing 2</a></li>
                     </ul>
 
                 </div>
