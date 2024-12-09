@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+
+
+
+
+
+</head>
+<body>
+    
+
+    <h1>Objects</h1>
+    <h2>window.innerWidth</h2>
+    <h3>Pixel Value</h3>
+
+
+
+
+    <script>
+
+        window.addEventListener('resize', function()
+            {
+                let heading3;
+                heading3 = window.document.querySelector('h3');
+                heading3.textContent = window.innerWidth + " pixels";
+
+            }
+        );
+
+
+
+        const BASKETBALL = 
+        {
+            brand: 'Wilson',
+            model: 'Evolution',
+            color: 'Orange',
+            size: '29.5',
+            isAlive: false,
+            isInflated: true,
+            image: '<img src="images/custombasketball.webp">',
+            bounce: function(){return 'Bounce!'},
+        }
+
+
+        window.document.write(BASKETBALL.brand + '<br>');
+        window.document.write(BASKETBALL.model + '<br>');
+        window.document.write(BASKETBALL.color + '<br>');
+        window.document.write(BASKETBALL.size + '<br>');
+        window.document.write(BASKETBALL.isAlive + '<br>');
+        window.document.write(BASKETBALL.isInflated + '<br>');
+        window.document.write(BASKETBALL.image + '<br>');
+        window.document.write(BASKETBALL.bounce() + '<br>');
+
+
+    </script>
+
+
+</body>
+</html>
