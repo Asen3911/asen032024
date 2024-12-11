@@ -57,7 +57,7 @@
     <section id="menu">
         <input type="color" id="colorpicker" value="#00ff00">
         <input type="range" id="rangepicker" min="1" max="100" value="15">
-        <div id="erase"> <img src="images/eraser.png" alt="Eraser - Erase your drawing"></div>
+        <div id="eraser"> <img src="images/eraser.png" alt="Eraser - Erase your drawing"></div>
         <div id="clear"> <img src="images/bin.png" alt="Trash - Clear the canvas"></div>
         <div id="undo"> <img src="images/undo.svg" alt="Undo - Undo Last Stroke" ></div>
     </section>
@@ -73,6 +73,9 @@
 
 
         //Create canvas variables
+
+        let lineJoinStyle = "round";
+        let lineCapStyle = "round";
 
         const CANVAS = window.document.querySelector('#canvas');
         const CTX = CANVAS.getContext('2d');
@@ -97,11 +100,98 @@
 
         //add event listeners to menu items
 
-        COLORPICKER.addEventListener('click', function(){alert('Colorpicker!')});
-        RANGEPICKER.addEventListener('click', function(){alert('Rangepicker!')});
-        ERASER.addEventListener('click', function(){alert('Eraser!')});
+        COLORPICKER.addEventListener('input', function(e)
+            {
+                // alert('Colorpicker!')
+                brushColor = e.target.value;
+            }
+        );
+
+
+
+
+        RANGEPICKER.addEventListener('input', function(e)
+            {
+                // alert('Rangepicker!')
+
+                brushSize = e.target.value;
+
+            }
+        );
+
+        ERASER.addEventListener('click', function()
+            {
+                brushColor = canvasColor;
+            }
+        );
+
         CLEAR.addEventListener('click', function(){alert('Clear!')});
+
         UNDO.addEventListener('click', function(){alert('Undo!')});
+
+        
+        //create object to track x and y coordinates
+        const MOUSE = 
+        {
+            x: undefined,
+            y: undefined,
+
+        };
+
+        //Create Painting Events (mousedown, mousemove, mouseup)
+
+        CANVAS.addEventListener('mousedown', function(e){
+
+
+            painting = true;
+
+            //capture x and y
+
+            MOUSE.x = e.x;
+            MOUSE.y = e.y;
+
+
+            CTX.beginPath();
+            CTX.moveTo(MOUSE.x, MOUSE.y);
+
+            console.log(e);
+
+        })
+
+
+        CANVAS.addEventListener('mousemove', function(e)
+        {
+            // console.log(MOUSE.x + " " + MOUSE.y);
+            MOUSE.x = e.x;
+            MOUSE.y = e.y;
+
+            draw();
+        }
+        );
+
+
+        CANVAS.addEventListener('mouseup', function()
+        {
+            painting = false;
+        }
+        );
+
+
+        function draw()
+        {
+            if(painting == true)
+            {
+                CTX.strokeStyle = brushColor;
+                CTX.lineWidth = brushSize;
+                CTX.lineJoin = lineJoinStyle;
+                CTX.lineCap = lineCapStyle;
+
+
+                CTX.lineTo(MOUSE.x, MOUSE.y);
+                CTX.stroke();
+            }
+        }
+
     </script>
 
     
