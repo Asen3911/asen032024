@@ -95,7 +95,17 @@
         btnCreateRectangle.style.backgroundColor = 'yellow';
         btnCreateRectangle.addEventListener('click', function()
         {
-            window.alert('Create Rectangle')
+            
+        
+            ctx.strokeStyle = 'indigo';
+            ctx.fillStyle = 'red';
+            ctx.lineWidth = 10;
+            ctx.lineCap = 'square';
+            ctx.lineJoin = 'square';
+
+            ctx.beginPath();
+            ctx.fillRect(100, 100, 200, 200);
+            ctx.stroke();
         } );
         
         

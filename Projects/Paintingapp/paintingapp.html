@@ -125,7 +125,18 @@
             }
         );
 
-        CLEAR.addEventListener('click', function(){alert('Clear!')});
+        CLEAR.style.canvasColor = 'pink';
+
+        CLEAR.addEventListener('click', function()
+            {
+
+            CTX.fillStyle = canvasColor;
+
+            CTX.beginPath();
+            CTX.fillRect(0, 0, canvas.width, canvas.height);
+            CTX.stroke();
+            }
+        );
 
         UNDO.addEventListener('click', function(){alert('Undo!')});
 

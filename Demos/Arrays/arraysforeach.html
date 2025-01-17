@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays For Each</title>
+
+</head>
+<body>
+    <h1>Arrays For Each</h1>
+
+    <script>
+
+
+        let myCats;
+        myCats = []
+
+        //assign values to array
+        myCats[0] = "Fluffy"
+        myCats[1] = "Felix"
+        myCats[2] = "Garfield"
+        myCats[3] = "Heathcliff"
+
+        //display
+        window.document.write(myCats);
+
+        //manipulate the array
+        myCats.push("Sylvester");
+        myCats.push("Fido");
+
+        //display
+        console.log(myCats);
+        myCats.pop(); //delete fido
+        myCats.shift();
+
+        //manipulate the array
+        myCats.unshift('Tom');
+
+        //Display # of elements in an array
+        console.log(myCats.length);
+
+
+        /*  
+        Multi Line comment - Notes
+
+        forEach allos you to cycle through an array
+
+        myCats.forEach();
+        myCats.forEach(     function(){}  );
+        myCats.forEach(     function(){}    );
+
+        example
+
+        myCats.forEach( function(cat)
+            {
+
+            }  
+        
+        );
+
+
+
+
+        */
+
+        myCats.forEach( function(cat)
+            {
+                console.log("I love" + cat);
+            }
+        );
+
+
+        myCats.forEach( function(c)
+            {
+                console.log("I miss" + c);
+            }
+        );
+
+
+        myCats.forEach( function(cn, index)
+            {
+                window.alert(cn + "is index" + index)
+            }
+        );
+
+    </script>
+
+</body>
+</html>
