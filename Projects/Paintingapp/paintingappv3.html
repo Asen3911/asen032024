@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting App</title>
+
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas{
+            background-color: grey;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        #menu{
+            background-color: silver;
+            border: 2px solid #333;
+            height: 60px;
+            position: fixed;
+            padding: 1rem;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        div{padding-right: 20px;}
+
+        img{
+            width: 30px;
+            height: 30px;
+
+        } 
+
+    </style>
+
+</head>
+<body>
+
+
+    <canvas id="canvas">
+
+    </canvas>
+
+
+
+    <section id="menu">
+        <input type="color" id="colorpicker" value="#00ff00">
+        <input type="range" id="rangepicker" min="1" max="100" value="15">
+        <div id="eraser"> <img src="images/eraser.png" alt="Eraser - Erase your drawing"></div>
+        <div id="clear"> <img src="images/bin.png" alt="Trash - Clear the canvas"></div>
+        <div id="undo"> <img src="images/undo.svg" alt="Undo - Undo Last Stroke" ></div>
+    </section>
+
+
+
+    <script>
+        // Create JavaScript Variables
+        let canvasColor = "lightblue"; //to be used on eraser
+        let brushColor = "#000000"; //Default Brush Color
+        let painting = false; 
+        let brushSize = 15;
+
+        //create undo variables
+
+        let undoArray = [];
+        let undoIndex = -1;
+
+
+        //Create canvas variables
+
+        let lineJoinStyle = "round";
+        let lineCapStyle = "round";
+
+        const CANVAS = window.document.querySelector('#canvas');
+        const CTX = CANVAS.getContext('2d');
+
+        //create menu variables
+
+        const COLORPICKER = window.document.querySelector('#colorpicker');
+
+        const RANGEPICKER = window.document.querySelector('#rangepicker');
+
+        const ERASER = window.document.querySelector('#eraser');
+
+        const CLEAR = window.document.querySelector('#clear');
+
+        const UNDO = window.document.querySelector('#undo');
+
+
+        //set canvas style
+        CANVAS.style.backgroundColor = canvasColor;
+        CANVAS.width = window.innerWidth;
+        CANVAS.height = window.innerHeight;
+
+        //add event listeners to menu items
+
+        COLORPICKER.addEventListener('input', function(e)
+            {
+                // alert('Colorpicker!')
+                brushColor = e.target.value;
+            }
+        );
+
+
+
+
+        RANGEPICKER.addEventListener('input', function(e)
+            {
+                // alert('Rangepicker!')
+
+                brushSize = e.target.value;
+
+            }
+        );
+
+        ERASER.addEventListener('click', function()
+            {
+                brushColor = canvasColor;
+            }
+        );
+
+        CLEAR.style.canvasColor = 'pink';
+
+        CLEAR.addEventListener('click', function()
+            {
+
+            CTX.fillStyle = canvasColor;
+
+            CTX.beginPath();
+            CTX.fillRect(0, 0, canvas.width, canvas.height);
+            CTX.stroke();
+            }
+        );
+
+        UNDO.addEventListener('click', function(){alert('Undo!')});
+
+        
+        //create object to track x and y coordinates
+        const MOUSE = 
+        {
+            x: undefined,
+            y: undefined,
+
+        };
+
+        //Create Painting Events (mousedown, mousemove, mouseup)
+
+        CANVAS.addEventListener('mousedown', function(e){
+
+
+            painting = true;
+
+            //capture x and y
+
+            MOUSE.x = e.x;
+            MOUSE.y = e.y;
+
+
+            CTX.beginPath();
+            CTX.moveTo(MOUSE.x, MOUSE.y);
+
+            //console.log(e);
+
+        })
+
+
+        CANVAS.addEventListener('mousemove', function(e)
+        {
+            // console.log(MOUSE.x + " " + MOUSE.y);
+            MOUSE.x = e.x;
+            MOUSE.y = e.y;
+
+            draw();
+        }
+        );
+
+
+        CANVAS.addEventListener('mouseup', function(e)
+        {
+            painting = false;
+
+
+            //prevent default behavior
+            e.preventDefault();
+
+            captureImageData(e);
+
+
+            //create variable to hold the image data
+            canvasData = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
+
+
+            //alert 
+            //console.log(canvasData);
+
+            //prevent unwanted behavior
+            CTX.beginPath();
+
+        }
+        );
+
+
+        function captureImageData (e)
+        {
+            if(e.type == 'mouseup')
+            {
+                // 
+                canvasData = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
+                console.log(canvasData);
+
+                // capture the data
+                undoArray.push(canvasData);
+
+                //increment the undo index
+                undoIndex = undoIndex+1;
+                console.log(undoIndex);
+                console.log(undoArray);
+            }
+
+        };
+
+
+        function draw()
+        {
+            if(painting == true)
+            {
+                CTX.strokeStyle = brushColor;
+                CTX.lineWidth = brushSize;
+                CTX.lineJoin = lineJoinStyle;
+                CTX.lineCap = lineCapStyle;
+
+
+                CTX.lineTo(MOUSE.x, MOUSE.y);
+                CTX.stroke();
+            }
+        }
+
+    </script>
+
+    
+</body>
+</html>
