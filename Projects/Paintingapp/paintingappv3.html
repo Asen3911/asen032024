@@ -135,15 +135,17 @@
         CLEAR.addEventListener('click', function()
             {
 
-            CTX.fillStyle = canvasColor;
-
-            CTX.beginPath();
-            CTX.fillRect(0, 0, canvas.width, canvas.height);
-            CTX.stroke();
+            clearCanvas();
             }
         );
 
-        UNDO.addEventListener('click', function(){alert('Undo!')});
+        UNDO.addEventListener('click', function()
+        {
+            // alert('Undo!')
+            undoLast();
+        
+        
+        });
 
         
         //create object to track x and y coordinates
@@ -227,8 +229,38 @@
                 console.log(undoIndex);
                 console.log(undoArray);
             }
-
         };
+
+
+
+        function undoLast()
+        {
+            if(undoIndex <= 0)
+            {
+                clearCanvas();
+            }
+            else
+            {
+                undoIndex = undoIndex - 1;
+                undoArray.pop();
+                CTX.putImageData(undoArray[undoIndex]   , 0, 0);
+                console.log(undoindex);
+            }
+
+
+        }
+
+        function clearCanvas()
+        {
+            CTX.fillStyle = canvasColor;
+            CTX.fillRect(0, 0, CANVAS.width, CANVAS.height);
+
+
+            undoArray = [];
+            undoIndex = -1;
+        }
+
+
 
 
         function draw()
