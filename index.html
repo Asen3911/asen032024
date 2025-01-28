@@ -82,7 +82,7 @@
 
 
         #pagenav{
-            background-color: #ccc5b9;
+            background-color: rgb(255, 255, 255);
             min-height: 20px;
             width: 350px;
             display: flex;
@@ -96,6 +96,8 @@
 
 
         }
+
+
         
         #pagenav a{
             color: black;
@@ -106,6 +108,22 @@
         #pagenav a:hover{
             color: cadetblue;
         }
+
+
+        #navlinks{
+            background-color: rgb(255, 255, 255);
+            min-height: 20px;
+            display: flex;
+            bottom: 15px;
+            left: calc(50% - 150px);
+            padding: 1rem;
+            color: black;
+            justify-content: center;
+            font-size: 100%;
+
+        }
+
+
 
 
         #media{
@@ -136,8 +154,16 @@
 
 
         img{
-            min-width: 500px;
-            height: 500px;
+            text-align: center;
+            justify-content: center;
+            display: block;
+            margin: auto;
+            border: 5px solid black;
+        }
+
+        #dolphin{
+            width: 55%;
+            height: 55%;
             text-align: center;
             justify-content: center;
             display: block;
@@ -245,10 +271,8 @@
         /* Media Queries */
         @media screen and (min-width:320px)
         {
-            #pagecontent
-            {
-                
-            }
+
+
         }
 
         @media screen and (min-width:480px)
@@ -268,6 +292,9 @@
                 min-width: 350px;
             }
 
+            #pagenav{
+                display: show;
+            }
 
         }
 
@@ -320,8 +347,16 @@
             
     
             <div class="container">
-                 <a href="https://coughing-babies.netlify.app/">    <div id = "logo"></div></div>   </a> 
-                <nav id="pagenav">
+                <a href="https://coughing-babies.netlify.app/">    
+                    
+                    <div id = "logo"></div>
+            
+                </a>
+                
+                
+                <!-- <nav id="pagenav">
+
+                    
     
                     <a href="#career">Career </a>
                     |
@@ -331,11 +366,23 @@
                     |
                     <a href="#keyassignments">Key Assignments</a>
 
-                </nav>
+                </nav> -->
             </div>
         </Header>
     
         <!-- end pageheader -->
+
+        <section id="navlinks">
+
+            <div>
+                <a href="#career">Career</a> |
+                <a href="#semester1">Semester 1</a> |
+                <a href="#semester2">Semester 2</a> |
+                <a href="#keyassignments">Key Assignments</a>
+            </div>
+
+
+        </section>
     
         <!-- begin showcase -->
     
@@ -346,7 +393,7 @@
             <!-- <blockquote>To be or not to be</blockquote> -->
 
 
-            <img src="Images/Screen_Shot_2024-08-31_at_2.13.19_pm.webp" alt="Symphony">
+            <img id="dolphin" src="Images/Screen_Shot_2024-08-31_at_2.13.19_pm.webp" alt="Symphony">
 
 
 
