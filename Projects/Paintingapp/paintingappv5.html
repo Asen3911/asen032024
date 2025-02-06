@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
     <title>Painting App</title>
 
 
     <style>
+        /* mobile css adjustments */
+        html{
+            overflow: hidden;
+
+        }
+
+        #erase, #clear, #undo
+        {
+            touch-action: manipulation;
+        }
 
         *{
             box-sizing: border-box;
@@ -20,13 +31,12 @@
             position: absolute;
             top: 0;
             left: 0;
-
         }
+
 
         #menu{
             background-color: silver;
             border: 2px solid #333;
-
             height: 60px;
             position: fixed;
             padding: 1rem;
@@ -67,10 +77,12 @@
 
     <script>
         // Create JavaScript Variables
-        let canvasColor = "lightblue"; //to be used on eraser
+        let canvasColor = "#add8e6"; //to be used on eraser
         let brushColor = "#000000"; //Default Brush Color
         let painting = false; 
         let brushSize = 15;
+
+
 
         //create undo variables
 
@@ -84,7 +96,14 @@
         let lineCapStyle = "round";
 
         const CANVAS = window.document.querySelector('#canvas');
-        const CTX = CANVAS.getContext('2d');
+        const CTX = CANVAS.getContext('2d', {willReadFrequently: true});
+
+        //capture image data
+        let canvasData;
+        canvasData = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
+
+
+
 
         //create menu variables
 
@@ -104,12 +123,17 @@
         CANVAS.width = window.innerWidth;
         CANVAS.height = window.innerHeight;
 
+        
+        
+        
         //add event listeners to menu items
-
         COLORPICKER.addEventListener('input', function(e)
             {
                 // alert('Colorpicker!')
                 brushColor = e.target.value;
+
+                //reset eraser
+                ERASER.style.filter = 'invert(0%)';
             }
         );
 
@@ -125,11 +149,25 @@
             }
         );
 
+
+
         ERASER.addEventListener('click', function()
             {
                 brushColor = canvasColor;
+
+
+                //provide feedbackfor user
+                //eraser is active
+                COLORPICKER.value = canvasColor;
+
+                ERASER.style.filter = 'invert(100%)';
+
+
             }
         );
+
+
+
 
         CLEAR.style.canvasColor = 'pink';
 
@@ -157,7 +195,7 @@
 
         };
 
-        //Create Painting Events (mousedown, mousemove, mouseup)
+
 
         CANVAS.addEventListener('mousedown', function(e){
 
@@ -185,8 +223,8 @@
             MOUSE.y = e.y;
 
             draw();
-        }
-        );
+            }
+            );
 
 
         CANVAS.addEventListener('mouseup', function(e)
@@ -203,7 +241,89 @@
 
 
             captureImageData(e);
-            
+
+            //alert 
+            //console.log(canvasData);
+
+            //prevent unwanted behavior
+            CTX.beginPath();
+
+        }
+        );
+
+
+
+
+
+        /*
+        Match mouse events with touch events
+        mousedown/touchstart
+        mousemove/touchmove
+        mouseup/touchend
+        
+        */
+
+
+        window.document.body.addEventListener('touchmove', function(e)
+        {
+            //prevent default webpage drag
+            e.preventDefault();
+
+        }, {passive:false});
+
+
+
+
+
+        //Create Painting Events (mousedown, mousemove, mouseup)
+
+        CANVAS.addEventListener('touchstart', function(e){
+
+
+            painting = true;
+
+            //console.log(e);
+
+            //capture x and y
+
+            MOUSE.x = e.touches[0].clientX;
+            MOUSE.y = e.touches[0].clientY;
+
+
+            CTX.beginPath();
+            CTX.moveTo(MOUSE.x, MOUSE.y);
+
+            //console.log(e);
+
+        });
+
+
+        CANVAS.addEventListener('touchmove', function(e)
+        {
+            // console.log(MOUSE.x + " " + MOUSE.y);
+            MOUSE.x = e.touches[0].clientX;
+            MOUSE.y = e.touches[0].clientY;
+
+            draw();
+        }
+        );
+
+
+        CANVAS.addEventListener('touchend', function(e)
+        {
+            painting = false;
+
+
+            //prevent default behavior
+            e.preventDefault();
+
+
+            //create variable to hold the image data
+            canvasData = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
+
+
+            captureImageData(e);
+
             //alert 
             //console.log(canvasData);
 
@@ -216,19 +336,19 @@
 
         function captureImageData (e)
         {
-            if(e.type == 'mouseup')
+            if(e.type == 'mouseup' || e.type=='touchend')
             {
                 // 
                 // canvasData = CTX.getImageData(0, 0, CANVAS.width, CANVAS.height);
-                console.log(canvasData);
+                //console.log(canvasData);
 
                 // capture the data
                 undoArray.push(canvasData);
 
                 //increment the undo index
                 undoIndex = undoIndex+1;
-                console.log(undoIndex);
-                console.log(undoArray);
+                //console.log(undoIndex);
+                //console.log(undoArray);
             }
         };
 
@@ -258,7 +378,7 @@
                 undoIndex = undoIndex - 1;
                 undoArray.pop();
                 CTX.putImageData(undoArray[undoIndex]   , 0, 0);
-                console.log(undoindex);
+                //console.log(undoindex);
             }
 
 
