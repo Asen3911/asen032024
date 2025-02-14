@@ -3,66 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive CSS</title>
+    <title>Grid Areas 2</title>
+
 
     <style>
-        body{
-            background-color: tomato;
-            padding-top: 1rem;
-        }
-
         #container{
             max-width: 1200px;
-            background-color: purple;
-            margin:auto;
-            border: 1px solid black;
-            gap: 3px;
             width: 80%;
+            margin: auto;
+            background-color: purple;
+            border: 1px solid black;
+            padding: 1rem;
 
         }
 
         #wrapper{
-            background-color: lavender;
-            border: 1px solid black;      
-            max-width: 1000px;      
+            background-color: purple;
+            border: 1px solid black;
+            max-width: 1000px;
             margin: auto;
-            
-
         }
-        
+
+
         #pageheader{
-            background-color: green;
+            background-color: red;
             min-height: 5rem;
             padding: 1rem;
-            grid-area: hea;
+            grid-area: pga;
         }
 
         #mainnav{
-            background-color: salmon;
+            background-color: green;
             min-height: 5rem;
             padding: 1rem;
             grid-area: nav;
         }
 
         #intromedia{
-            background-color: green;
+            background-color: blue;
             min-height: 5rem;
             padding: 1rem;
             grid-area: med;
         }
 
         #pagemain{
-            background-color: white;
-            min-height: 5rem;
-            padding: 1rem;
-            grid-area: mai;
-        }
-
-        #pageaside{            
             background-color: grey;
             min-height: 5rem;
             padding: 1rem;
-            grid-area: asi;
+            grid-area: mai;
         }
 
         #card001{
@@ -73,53 +61,44 @@
         }
 
         #card002{
-            background-color: yellow;
+            background-color: purple;
             min-height: 5rem;
             padding: 1rem;
             grid-area: two;
         }
 
-        #card003{
-            background-color: yellow;
-            min-height: 5rem;
-            padding: 1rem;
-            grid-area: thr;
-        }
-
         #pagefooter{
-            background-color: yellow;
+            background-color: navy;
             min-height: 5rem;
             padding: 1rem;
             grid-area: foo;
         }
 
         #pagedetails{
-            background-color: sandybrown;
+            background-color: aqua;
             min-height: 5rem;
             padding: 1rem;
-            grid-area: suf;
+            grid-area: det;
         }
 
-        /* tablet and desktop */
 
         @media screen and (min-width:768px)
         {
             body{
-                background-color: brown;
+                background-color: yellow;
             }
             
             #wrapper{
                 display: grid;
                 gap: 10px;
                 grid-template-areas:
-                "hea hea hea"
-                "nav nav nav"
+                "pga pga pga"
                 "med med med"
-                "mai mai asi"
-                "one two thr"
+                "nav mai mai"
+                "nav one two"
                 "foo foo foo"
-                "suf suf suf";
-                
+                "det det det";
+                ;
             }
 
             #pageheader{
@@ -162,31 +141,25 @@
                 min-height: 20rem;
             }
         }
-
-
-
-            
-
     </style>
+
 
 </head>
 <body>
-
     <div id="container">
         <div id="wrapper">
-            <header id="pageheader">#pageheader</header>
-            <nav id="mainnav">#mainnav</nav>
-            <div id="intromedia">#intromedia</div>
-            <main id="pagemain">#pagemain</main>
-            <aside id="pageaside">#pageaside</aside>
-            <section id="card001">#card001</section>
-            <section id="card002">#card002</section>
-            <section id="card003">#card003</section>
-            <footer id="pagefooter">#pagefooter</footer>
-            <footer id="pagedetails">#pagedetails</footer>
-
+        <header id="pageheader">#Pageheader</header>
+        <nav id="mainnav">#mainnav</nav>
+        <div id="intromedia">#intromedia</div>
+        <main id="pagemain">#pagemain</main>
+        <section id="card001">#card001</section>
+        <section id="card002">#card002</section>
+        <footer id="pagefooter">#pagefooter</footer>
+        <footer id="pagedetails">#pagedetails</footer>
         </div>
     </div>
+
+
     
 </body>
 </html>
