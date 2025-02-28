@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central valley Pets INC.</title>
+
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'vbp0xqp',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container{
+            background-color: grey;
+            max-width: 1200px;
+            margin: auto;
+            
+        }
+
+        #nav{
+            background-color: aqua;
+            padding:1rem;
+            text-align: center;
+            top: 0;
+        }
+
+        h1{
+            font-size: 5rem;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0,0,0,0.5);
+            font-family: "black-han-sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-align:center;
+
+        }
+
+
+
+
+
+
+
+        #wrapper{
+        
+            background-color: bisque;
+            gap: 5px;
+      
+        }
+
+        header{
+            background-color: #333;
+            color: white;
+            padding: 0rem;
+            padding-top: 13rem;
+            /* text-align: center; */
+            height: 15rem;
+            background-image: url("cat+dog/large/cat-dog.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 15px solid slategray;
+            
+
+
+        }
+
+        #socialmedia{
+            display: grid;
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            grid-area: soc;
+        }
+        
+
+        #facebook{
+            background-color: blue;
+            padding:1rem;
+        }
+        #instagram{
+            background-color: lightblue;
+            padding:1rem;
+        }
+        #tiktok{
+            background-color: red;
+            padding: 1rem;
+        }
+        #youtube{
+            background-color: green;
+            padding: 1rem;
+        }
+
+        img.leftimage{
+            max-width: 100%;
+            height: auto;
+            float: left;
+            padding: 1rem;
+
+        }
+
+        #info{
+            background-color: grey;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+            grid-area: inf;
+
+            
+        }
+
+        #help{
+            background-color: teal;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+            grid-area: hel;
+
+            
+        }
+
+        #availablepets{
+            background-color: brown;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+
+            grid-area: ava;
+
+            
+        }
+
+        #application{
+            background-color: blueviolet;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+
+            grid-area: app;
+
+            
+        }
+
+        #cost{
+            background-color: greenyellow;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+            grid-area: cos;
+
+            
+        }
+
+
+
+        @media screen and (min-width:768px)
+        {
+            body{
+                background-color: #E7E0D3;
+            }
+
+            nav{
+                display: flex;
+                justify-content: space-around;
+                background-color: #333;
+                color: white;
+                padding: 1rem;
+                position: fixed;
+                width: 100%;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+            }
+            
+            #wrapper{
+                display: grid;
+                gap: 10px;
+                grid-template-areas:
+                "soc soc soc soc"
+                "med inf inf inf"
+                "app inf inf inf"
+                "ava inf inf inf"
+                "cos inf inf inf"
+                "hel inf inf inf";
+                ;
+            }
+
+            #socialmedia{
+                display: flex;
+            }
+
+
+        #facebook{
+            flex: 25%;
+        }
+        #instagram{
+            flex: 25%;
+        }
+        #tiktok{
+            flex: 25%;
+        }
+        #youtube{
+            flex: 25%;
+        }
+
+
+        #help{
+            min-width: 200px;
+            
+        }
+
+        #availablepets{
+            min-width: 200px;
+            
+        }
+
+        #application{
+            min-width: 200px;
+            
+        }
+
+        #cost{
+            min-width: 200px;
+        }
+
+
+
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div id="home">home</div>
+        <div id="pets">pets</div>
+        <div id="logo">logo</div>
+        <div id="about">about</div>
+        <div id="contact">contact</div>
+    </nav>
+
+    <header>
+    
+                <h1 id="title">Central Valley Pets INC</h1>
+
+    </header>
+
+    <br>
+
+    <div id="container">
+        <div id="wrapper">
+
+            <div id="socialmedia">
+                <div id="facebook">face book</div>
+                <div id="instagram">instagram</div>
+                <div id="tiktok">tiktok</div>
+                <div id="youtube">youtube</div>
+            </div>
+
+
+            <div id="media">
+                <img class="leftimage" src="cat+dog/medium/beagleCat.jpg" alt="cats and dogs">
+            </div>
+
+
+            <div id="info">info</div>
+
+            <div id="help">help</div>
+            <div id="availablepets">available pets</div>
+            <div id="application">applications</div>
+            <div id="cost">cost to adopt</div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
