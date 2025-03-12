@@ -24,8 +24,8 @@
         }
 
         #container{
-            background-color: grey;
-            max-width: 1200px;
+            background-color: E7E0D3;
+            max-width: 1400px;
             margin: auto;
             
         }
@@ -35,6 +35,9 @@
             padding:1rem;
             text-align: center;
             top: 0;
+
+
+
         }
 
         h1{
@@ -49,6 +52,12 @@
 
         }
 
+       
+        #media{
+            background-color: blue;
+            width: 600px;
+            height: 338px;
+        }
 
 
 
@@ -57,16 +66,18 @@
 
         #wrapper{
         
-            background-color: bisque;
+            background-color: E7E0D3;
             gap: 5px;
+            padding: 1rem;
+            margin-top: 2rem;
       
         }
 
         header{
-            background-color: #333;
+            background-color: slategray;
             color: white;
             padding: 0rem;
-            padding-top: 13rem;
+            padding-top: 17rem;
             /* text-align: center; */
             height: 15rem;
             background-image: url("cat+dog/large/cat-dog.jpg");
@@ -74,6 +85,7 @@
             background-position: center;
             background-repeat: no-repeat;
             border-bottom: 15px solid slategray;
+
             
 
 
@@ -81,7 +93,7 @@
 
         #socialmedia{
             display: grid;
-            background-color: #333;
+            background-color: slategray;
             color: white;
             padding: 1rem;
             text-align: center;
@@ -90,80 +102,93 @@
         
 
         #facebook{
-            background-color: blue;
+            background-color: white;
             padding:1rem;
         }
         #instagram{
-            background-color: lightblue;
+            background-color: white;
             padding:1rem;
         }
         #tiktok{
-            background-color: red;
+            background-color: white;
             padding: 1rem;
         }
         #youtube{
-            background-color: green;
+            background-color: white;
             padding: 1rem;
         }
 
-        img.leftimage{
-            max-width: 100%;
-            height: auto;
-            float: left;
-            padding: 1rem;
+        
 
+        #leftimage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            
         }
 
         #info{
-            background-color: grey;
+            background-color: white;
+            border: 5px solid slategray;
             color: black;
             padding: 1rem;
-            text-align: center;
             grid-area: inf;
+            line-height: 1.7;
+            width: 40rem;
 
             
         }
 
         #help{
-            background-color: teal;
+            background-color:white;
             color: black;
             padding: 1rem;
             text-align: center;
             grid-area: hel;
+            border:3px solid #333;
 
             
         }
 
         #availablepets{
-            background-color: brown;
+            background-color: white;
             color: black;
             padding: 1rem;
             text-align: center;
 
             grid-area: ava;
+            border:3px solid #333;
 
             
         }
 
         #application{
-            background-color: blueviolet;
+            background-color: white;
             color: black;
             padding: 1rem;
             text-align: center;
 
             grid-area: app;
 
+            border:3px solid #333;
             
         }
 
         #cost{
-            background-color: greenyellow;
-            color: black;
+            background-color: white;
             padding: 1rem;
             text-align: center;
             grid-area: cos;
 
+            border:3px solid #333;
             
+        }
+
+        #pagefooter{
+            background-color: #333;
+            padding: 1rem;
+            grid-area: pga;
         }
 
 
@@ -179,7 +204,7 @@
                 justify-content: space-around;
                 background-color: #333;
                 color: white;
-                padding: 1rem;
+                padding: 1.5rem;
                 position: fixed;
                 width: 100%;
                 top: 0px;
@@ -190,19 +215,23 @@
             #wrapper{
                 display: grid;
                 gap: 10px;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
                 grid-template-areas:
                 "soc soc soc soc"
-                "med inf inf inf"
-                "app inf inf inf"
-                "ava inf inf inf"
-                "cos inf inf inf"
-                "hel inf inf inf";
+                "med med inf inf"
+                "app app inf inf"
+                "ava ava inf inf"
+                "cos cos inf inf"
+                "hel hel inf inf"
+                "pga pga pga pga";
                 ;
             }
 
             #socialmedia{
                 display: flex;
             }
+
+            
 
 
         #facebook{
@@ -220,36 +249,67 @@
 
 
         #help{
-            min-width: 200px;
+            max-width: 568px;
             
         }
 
         #availablepets{
-            min-width: 200px;
+            max-width: 568px;
             
         }
 
         #application{
-            min-width: 200px;
+            max-width: 568px;
             
         }
 
         #cost{
-            min-width: 200px;
+            max-width: 568px;
         }
 
-
-
+        #fbicon{
+            width: 50px;
+            height: 50px;
         }
+        #igicon{
+            width: 50px;
+            height: 50px;
+        }
+        #tkicon{
+            width: 50px;
+            height: 50px;
+        }
+        #yticon{
+            width: 50px;
+            height: 50px;
+        }
+
+        #logo{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 0px;
+            z-index: 9999;
+            position: fixed;
+            border: 15px solid #333;
+            margin-left: calc(50% - 75px);
+        }
+
+        
+    }
 
     </style>
 
 </head>
 <body>
+
+
+    <img id="logo" src="logo 2.jpg" alt="">
+
     <nav>
         <div id="home">home</div>
         <div id="pets">pets</div>
-        <div id="logo">logo</div>
+        <div id="logodiv">  </div>
         <div id="about">about</div>
         <div id="contact">contact</div>
     </nav>
@@ -266,27 +326,52 @@
         <div id="wrapper">
 
             <div id="socialmedia">
-                <div id="facebook">face book</div>
-                <div id="instagram">instagram</div>
-                <div id="tiktok">tiktok</div>
-                <div id="youtube">youtube</div>
+                
+                <div id="facebook">
+                    <a href="https://www.facebook.com/" id="fblink"  class="icons"   ><img id="fbicon" src="icons/facebook.png" alt=""></a>
+                </div>
+
+                <div id="instagram">
+                    <a href="https://www.instagram.com/" id="iglink"    class="icons"    ><img id="igicon" src="icons/instagram.png" alt=""></a>
+                </div>
+
+                <div id="tiktok">
+                    <a href="https://www.tiktok.com/" id="tklink"       class="icons"    ><img id="tkicon" src="icons/tik-tok.png" alt=""></a>
+                </div>
+
+                <div id="youtube">
+                    <a href="https://www.youtube.com/" id="ytlink"     class="icons"     ><img id="yticon" src="icons/youtube.png" alt=""></a>
+                </div>
             </div>
 
+            
 
             <div id="media">
-                <img class="leftimage" src="cat+dog/medium/beagleCat.jpg" alt="cats and dogs">
+                <img id="leftimage" src="cat+dog/medium/beagleCat.jpg" alt="cats and dogs">
             </div>
 
 
-            <div id="info">info</div>
+            <section id="info">
+                <h2>Information</h2>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores praesentium nostrum veniam est placeat dolorum natus delectus ab optio impedit reiciendis, dicta assumenda similique exercitationem? Ex, quaerat eligendi. Exercitationem perspiciatis explicabo maxime odio vero consequatur laborum voluptates quis temporibus, cum voluptatem alias quibusdam repellendus vel possimus ullam voluptatibus dolores placeat soluta minus quo corrupti! Ipsum, impedit! Reiciendis culpa illo at eius nihil ullam aliquid unde, maxime numquam velit molestias quo libero? Ea dolores, consequatur dolor, laborum amet nostrum inventore ullam deserunt, possimus sit tempore alias. Ex consectetur illum commodi fugit laudantium, qui culpa minima libero aliquid dolorum debitis saepe, numquam quis ad aspernatur harum? Fugiat maxime ut, vero nobis, quos laboriosam commodi, officia sed aliquid quae vitae qui harum. Explicabo, mollitia dolore velit ab ipsum sapiente libero vero assumenda hic repellat ad dicta dolorem voluptatum voluptatibus omnis in commodi magni sint molestias quis unde neque ratione! Non earum nihil quisquam et beatae! Nam mollitia aliquam laboriosam dolorum explicabo? Qui recusandae excepturi non atque necessitatibus saepe obcaecati vero id nesciunt mollitia, provident, consectetur vel sint. Minima suscipit a ipsum fugiat. Dolore commodi laborum tempore? Tempora voluptatibus et nostrum repellendus illo excepturi fuga natus numquam? Earum sequi dicta similique architecto doloremque beatae!
+                </p>
+            </section>
 
-            <div id="help">help</div>
+            <div id="help">
+                <a href="">help</a>
+            </div>
+
             <div id="availablepets">available pets</div>
             <div id="application">applications</div>
             <div id="cost">cost to adopt</div>
 
+            <footer id="pagefooter">5593807629</footer>
+
         </div>
     </div>
+
+    
     
 </body>
 </html>
